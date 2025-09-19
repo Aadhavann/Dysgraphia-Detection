@@ -1,0 +1,21 @@
+# Core data science libraries
+pandas
+numpy
+matplotlib
+seaborn
+
+# Machine learning and preprocessing
+scikit-learn
+scipy
+
+# Deep learning (optional, for neural network components)
+tensorflow
+
+# Network analysis (for potential graph-based analyses)
+networkx
+
+# Dimensionality reduction
+umap-learn
+
+# Development and utilities
+warnings

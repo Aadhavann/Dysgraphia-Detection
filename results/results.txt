@@ -1,0 +1,132 @@
+Starting analysis with ceiling strategy: drop
+Loading and combining datasets...
+ASD Combined Shape: (451, 19)
+ID Combined Shape: (451, 13)
+
+Performing comprehensive data quality analysis...
+
+=== ASD - Attention_Deficit Analysis ===
+Count: 451
+Mean: 87.80, Median: 100.00, Std: 32.76
+Min: 0.00, Max: 100.00
+Values = 100: 396 (87.8%)
+Values ≥ 99: 396 (87.8%)
+
+Value counts for scores ≥ 95:
+Attention_Deficit
+100    396
+Name: count, dtype: int64
+
+=== ID - Attention_Deficit Analysis ===
+Count: 451
+Mean: 87.80, Median: 100.00, Std: 32.76
+Min: 0.00, Max: 100.00
+Values = 100: 396 (87.8%)
+Values ≥ 99: 396 (87.8%)
+
+Value counts for scores ≥ 95:
+Attention_Deficit
+100    396
+Name: count, dtype: int64
+
+=== ASD - Visual_Motor_Integration Analysis ===
+Count: 451
+Mean: 87.98, Median: 92.33, Std: 14.67
+Min: 8.33, Max: 100.00
+Values = 100: 51 (11.3%)
+Values ≥ 99: 92 (20.4%)
+
+Value counts for scores ≥ 95:
+Visual_Motor_Integration
+95.000000      6
+95.333333      3
+95.666667      9
+96.000000      3
+96.333333     10
+96.666667      4
+97.000000     12
+97.333333      8
+97.666667     10
+98.000000      6
+98.333333     21
+98.666667     12
+99.000000     29
+99.333333     12
+100.000000    51
+Name: count, dtype: int64
+
+=== ID - Visual_Motor_Integration Analysis ===
+Count: 451
+Mean: 87.98, Median: 92.33, Std: 14.67
+Min: 8.33, Max: 100.00
+Values = 100: 51 (11.3%)
+Values ≥ 99: 92 (20.4%)
+
+Value counts for scores ≥ 95:
+Visual_Motor_Integration
+95.000000      6
+95.333333      3
+95.666667      9
+96.000000      3
+96.333333     10
+96.666667      4
+97.000000     12
+97.333333      8
+97.666667     10
+98.000000      6
+98.333333     21
+98.666667     12
+99.000000     29
+99.333333     12
+100.000000    51
+Name: count, dtype: int64
+
+Ceiling effects analysis saved to 'ceiling_effects_analysis.csv'
+
+Preprocessing data...
+=== Starting Data Preprocessing ===
+Ceiling effect detected in ASD Attention_Deficit: 87.8% at maximum
+Ceiling effect detected in ID Attention_Deficit: 87.8% at maximum
+Dropping Attention_Deficit due to ceiling effects
+Dropping Attention_Deficit due to ceiling effects
+Common features after preprocessing: 10
+Features: ['Perception', 'Cognitive_Flexibility', 'Visual_Motor_Integration', 'Sequencing', 'Verbalization', 'Syntax', 'Recognition', 'Pre_Writing', 'Verbal_Intellectual_Ability', 'Memory']
+Applying power transformation to reduce skewness...
+Transforming highly skewed features in ASD: ['Perception', 'Visual_Motor_Integration', 'Sequencing', 'Recognition']
+Transforming highly skewed features in ID: ['Perception', 'Visual_Motor_Integration', 'Sequencing', 'Recognition']
+
+Performing enhanced EDA...
+=== Enhanced EDA Report ===
+
+ASD Combined Overview:
+Shape: (451, 18)
+Target distribution:
+target
+-1    311
+ 0    120
+ 1     20
+Name: count, dtype: int64
+Labeled samples: 140
+Unlabeled samples: 311
+
+ID Combined Overview:
+Shape: (451, 12)
+Target distribution:
+target
+-1    325
+ 0    122
+ 1      4
+Name: count, dtype: int64
+Labeled samples: 126
+Unlabeled samples: 325
+
+Saving cleaned data...
+Cleaned datasets saved to disk
+Common features (10): ['Perception', 'Cognitive_Flexibility', 'Visual_Motor_Integration', 'Sequencing', 'Verbalization', 'Syntax', 'Recognition', 'Pre_Writing', 'Verbal_Intellectual_Ability', 'Memory']
+
+=== Analysis Complete ===
+Ceiling strategy used: drop
+Ceiling features identified: ['Attention_Deficit']
+Final common features: 10
+ASD final shape: (451, 18)
+ID final shape: (451, 12)
