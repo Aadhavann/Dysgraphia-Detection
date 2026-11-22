@@ -122,13 +122,22 @@ print(outcome["stability"])
 
 Google Colab:
 
+Colab already provides CUDA builds of PyTorch and torchvision, together with
+numpy, pandas, scipy, scikit-learn, matplotlib and OpenCV. Install only what is
+missing. Do **not** run `pip install -r requirements.txt` there: on Linux it
+resolves to the CPU wheels for torch and would silently move the entire run
+onto the CPU, roughly an order of magnitude slower.
+
 ```python
-from google.colab import drive
-drive.mount("/content/drive")
-%cd /content/drive/MyDrive/Dysgraphia-Detection
-!pip install -q -r requirements.txt
+# Runtime > Change runtime type > T4 GPU, first.
+!git clone --quiet https://github.com/Aadhavann/Dysgraphia-Detection.git
+%cd Dysgraphia-Detection
+!pip install -q seaborn
 !python run.py --epochs 50 --stability-runs 2
 ```
+
+If the repository already lives in Drive, replace the clone and `cd` with
+`%cd /content/drive/MyDrive/Dysgraphia-Detection`.
 
 Each run writes `results/edi_features.csv`, `results/results_table.csv`,
 `results/results_summary.txt`, `results/run_manifest.json`, the trained weights,
