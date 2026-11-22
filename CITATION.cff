@@ -1,0 +1,60 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the conference paper below."
+title: "Explainable Dysgraphia Index (EDI): reference implementation"
+abstract: >-
+  Reference implementation of the Explainable Dysgraphia Index, a dysgraphia
+  screening framework that pairs a ResNet-18 classifier with four
+  occupational-therapy handwriting metrics weighted by Score-CAM activations,
+  so that predictions come with explanations a clinician can check.
+type: software
+license: MIT
+repository-code: "https://github.com/Aadhavann/Dysgraphia-Detection"
+keywords:
+  - dysgraphia
+  - explainable-ai
+  - score-cam
+  - grad-cam
+  - medical-imaging
+  - handwriting-analysis
+  - pytorch
+authors:
+  - family-names: Sreekumar
+    given-names: Varsha
+  - family-names: Anbumunee
+    given-names: "Aadhavan P"
+  - family-names: Senthilkumar
+    given-names: Sudha
+preferred-citation:
+  type: conference-paper
+  title: "Image-Based Dysgraphia Detection with Explainability Using CAMs and EDI"
+  authors:
+    - family-names: Sreekumar
+      given-names: Varsha
+    - family-names: Anbumunee
+      given-names: "Aadhavan P"
+    - family-names: Senthilkumar
+      given-names: Sudha
+  collection-title: >-
+    2026 International Conference on Computing, Communication, Control and
+    Cyber-Physical Systems (I5CPS)
+  publisher:
+    name: IEEE
+  year: 2026
+  month: 2
+  start: 1
+  end: 6
+  doi: "10.1109/I5CPS67958.2026.11452617"
+  url: "https://ieeexplore.ieee.org/document/11452617/"
+references:
+  - type: dataset
+    title: "Potential Dysgraphia Handwriting Dataset of School-Age Children"
+    authors:
+      - family-names: Ramlan
+        given-names: "Siti Azura"
+    publisher:
+      name: "Mendeley Data"
+    year: 2023
+    version: V1
+    doi: "10.17632/39hr8dx76p.1"
+    url: "https://data.mendeley.com/datasets/39hr8dx76p/1"
+    notes: "The images under data/. Redistributed under CC BY 4.0."

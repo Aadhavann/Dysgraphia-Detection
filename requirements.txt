@@ -1,21 +1,20 @@
-# Core data science libraries
-pandas
-numpy
-matplotlib
-seaborn
+# Core scientific stack
+numpy>=1.23
+pandas>=1.5
+scipy>=1.10          # scipy.stats.rankdata(axis=...) is used by the bootstrap
+scikit-learn>=1.2
 
-# Machine learning and preprocessing
-scikit-learn
-scipy
+# Deep learning
+torch>=1.13
+torchvision>=0.14
 
-# Deep learning (optional, for neural network components)
-tensorflow
+# Image processing
+opencv-python>=4.6
 
-# Network analysis (for potential graph-based analyses)
-networkx
+# Figures
+matplotlib>=3.6
+seaborn>=0.12
 
-# Dimensionality reduction
-umap-learn
-
-# Development and utilities
-warnings
+# On Linux `pip install -r requirements.txt` pulls the CPU wheels for torch and
+# torchvision. Install the CUDA build explicitly if you have a GPU; see
+# https://pytorch.org/get-started/locally/

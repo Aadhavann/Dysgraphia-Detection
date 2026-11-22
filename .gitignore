@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Model weights: large, reproducible from the config in run_manifest.json
+*.pth
+*.pt
+results/checkpoints/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Note: data/ and the figures under results/ are committed deliberately.
+# data/ is redistributed under CC BY 4.0 with attribution in DATASET.md.
