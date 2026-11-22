@@ -4,7 +4,13 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.9+-orange.svg)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> An interpretable AI system for dysgraphia detection in children's handwriting using weakly-supervised localization and explainable feature extraction.
+## Published Research
+
+**Image-Based Dysgraphia Detection with Explainability Using CAMs and EDI**
+
+Published in *2026 International Conference on Computing, Communication, Control and Cyber-Physical Systems (I5CPS)*.
+
+[Read on IEEE Xplore](https://ieeexplore.ieee.org/document/11452617/) | [DOI: 10.1109/I5CPS67958.2026.11452617](https://doi.org/10.1109/I5CPS67958.2026.11452617)
 
 ## Overview
 
