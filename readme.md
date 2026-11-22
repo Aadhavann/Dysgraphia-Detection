@@ -6,7 +6,7 @@
 
 > An interpretable AI system for dysgraphia detection in children's handwriting using weakly-supervised localization and explainable feature extraction.
 
-## 🎯 Overview
+## Overview
 
 The Explainable Dysgraphia Index (EDI) bridges the gap between black-box CNN predictions and clinician-interpretable handwriting analysis. By combining Class Activation Mapping (CAM) with traditional handwriting metrics, EDI provides both accurate screening and explainable insights for pediatric dysgraphia detection.
 
@@ -15,7 +15,7 @@ The Explainable Dysgraphia Index (EDI) bridges the gap between black-box CNN pre
 - **Clinical relevance**: Provides visual explanations that align with occupational therapy assessments
 - **Robust methodology**: Subject-wise data splitting prevents leakage, comprehensive validation pipeline
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 Input Image → CNN Classifier → CAM Generation → Feature Weighting → EDI Score
@@ -32,7 +32,7 @@ Input Image → CNN Classifier → CAM Generation → Feature Weighting → EDI 
 4. **EDI Constructor**: Linear combination with learned/equal weights
 5. **Evaluation Suite**: Comprehensive validation and visualization
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -76,7 +76,7 @@ print(f"CAM Stability: {cam_stability:.3f}")
 print(f"EDI Improves CNN: {results['CNN_EDI_Fusion']['auc'] > results['CNN_Only']['auc']}")
 ```
 
-## 📊 Features Extracted
+## Features Extracted
 
 ### Traditional Handwriting Metrics
 1. **Spacing Irregularity**: Standard deviation of inter-character distances
@@ -84,43 +84,10 @@ print(f"EDI Improves CNN: {results['CNN_EDI_Fusion']['auc'] > results['CNN_Only'
 3. **Character Size Variance**: Bounding box dimension variations
 4. **Stroke Width Standard Deviation**: Line thickness consistency
 
-### CAM-Weighted Features
+### 
 Each metric is recomputed on CAM-weighted image regions to focus on diagnostically relevant areas.
 
-## 🔬 Methodology
-
-### 1. Subject-Wise Data Split
-- Ensures all pages from a child are in only one split (train/val/test)
-- Prevents data leakage that could inflate performance metrics
-- Stratified sampling maintains class balance
-
-### 2. CNN Training
-- Early stopping based on validation AUC
-- Light data augmentation (rotation ±5°, color jitter)
-- No flipping/mirroring (unnatural for handwriting)
-
-### 3. CAM Generation & Stability
-- Dual implementation: Grad-CAM and Score-CAM
-- Stability testing: IoU overlap across multiple runs
-- Automatic warnings for low stability (IoU < 0.3)
-
-### 4. EDI Construction
-```python
-EDI = Σ(w_i × f_i)
-where:
-- f_i = CAM-weighted feature i
-- w_i = CAM intensity weight or equal weight
-```
-
-### 5. Comprehensive Evaluation
-Five comparison methods:
-- Features only (no CAM)
-- CNN only  
-- EDI Equal weights
-- EDI Weighted
-- **CNN + EDI Fusion** ← Key success metric
-
-## 📈 Results & Outputs
+## Results & Outputs
 
 ### Generated Files
 ```
@@ -143,29 +110,15 @@ results/
 
 ## 🛡️ Quality Assurance
 
-### Built-in Validation Checks
-- ⚠️ **CAM Stability Warnings**: Alerts when IoU < 0.3
-- ⚠️ **Feature Variance Alerts**: Flags features with std < 1e-6  
-- ⚠️ **Preprocessing Warnings**: Detects insufficient foreground pixels
-- ⚠️ **Normalization Issues**: Identifies problematic feature scaling
-
-### Success Indicators
-✅ EDI fusion outperforms CNN-only (primary success metric)
-✅ CAM stability IoU > 0.5 (excellent) or > 0.3 (acceptable)
-✅ Features show different distributions between groups
-✅ Case studies highlight clinically relevant regions
-
-## 🎨 Visualization Examples
-
 ### Case Study Output
-![Case Study Example](https://via.placeholder.com/800x600/4CAF50/white?text=CAM+Overlay+%2B+Feature+Analysis)
+![Dysgraphia Detection - CAM Heatmap](images/cam_visualization.png)
 
 - **Original Image**: Raw handwriting sample
 - **CAM Heatmap**: Model attention visualization
 - **Feature Comparison**: Raw vs CAM-weighted metrics
 - **EDI Scores**: Equal vs weighted index values
 
-## 🔧 Configuration Options
+## Configuration Options
 
 ### Model Architecture
 ```python
@@ -186,126 +139,6 @@ use_gradcam=False  # Score-CAM, more stable
 epochs=50          # Training epochs
 batch_size=16      # Batch size (adjust for GPU memory)
 learning_rate=0.001 # Adam optimizer learning rate
-```
-
-## 📚 Clinical Interpretation
-
-### EDI Score Interpretation
-- **Positive scores**: Higher dysgraphia risk
-- **Negative scores**: More typical handwriting patterns
-- **Visual heatmaps**: Show specific problem areas for intervention
-
-### For Clinicians
-- Red/warm areas in CAM indicate concerning regions
-- Feature breakdowns align with traditional OT assessments
-- Case studies provide evidence-based screening support
-
-## 🧪 Research Applications
-
-### Potential Extensions
-1. **Multi-class classification**: Severity grading (mild/moderate/severe)
-2. **Longitudinal analysis**: Track improvement over time
-3. **Intervention guidance**: Specific feature-based recommendations
-4. **Cross-cultural validation**: Different languages/writing systems
-
-### Publication Potential
-- Computer vision conferences (CVPR, ICCV)
-- Medical informatics venues (MICCAI, JAMIA)
-- Educational technology journals
-- Assistive technology conferences
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our contributing guidelines:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Development Setup
-```bash
-git clone https://github.com/yourusername/edi-dysgraphia.git
-cd edi-dysgraphia
-pip install -r requirements.txt
-python -m pytest tests/  # Run tests
-```
-
-## 📄 Citation
-
-If you use this work in your research, please cite:
-
-```bibtex
-@article{edi_dysgraphia_2025,
-  title={Explainable Dysgraphia Index: Bridging CNN Predictions with Clinical Handwriting Analysis},
-  author={Your Name},
-  journal={arXiv preprint arXiv:2025.xxxxx},
-  year={2025}
-}
-```
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🔗 Links & Resources
-
-- [Mendeley Dysgraphia Dataset](https://data.mendeley.com/datasets/handwriting-dataset)
-- [PyTorch CAM Documentation](https://pytorch.org/vision/stable/transforms.html)
-- [Medical AI Best Practices](https://www.nature.com/articles/s41591-020-0843-2)
-- [Dysgraphia Clinical Guidelines](https://dysgraphialife.org/)
-
-## 💡 Troubleshooting
-
-### Common Issues
-
-**Q: "Low CAM stability detected"**
-A: Try Score-CAM instead of Grad-CAM, or use a different model architecture.
-
-**Q: "Feature has very low variance"**
-A: Check image preprocessing, ensure sufficient image quality and variety.
-
-**Q: "EDI does not improve CNN performance"**
-A: Review feature engineering, try different CAM weighting schemes, or check data quality.
-
-**Q: "Very few foreground pixels detected"**
-A: Adjust binarization thresholds or improve image preprocessing pipeline.
-
----
-
-<div align="center">
-
-**Built with ❤️ for improving children's learning outcomes**
-
-</div>
-
-# Enhanced Clinical Data Analysis Pipeline
-
-A comprehensive Python pipeline for analyzing clinical datasets with advanced preprocessing, ceiling effects handling, and exploratory data analysis capabilities.
-
-## Features
-
-- **Automated Data Loading & Harmonization**: Seamlessly combine train/test datasets with intelligent column mapping
-- **Ceiling Effects Analysis**: Detect and handle ceiling effects using configurable strategies
-- **Advanced Preprocessing**: Missing value imputation, power transformations, and feature scaling
-- **Comprehensive EDA**: Automated visualization generation and statistical summaries
-- **Flexible Configuration**: Easily customizable analysis parameters
-- **Modular Design**: Well-organized codebase with separate components for different analysis stages
-
-## Project Structure
-
-```
-clinical-data-analysis/
-├── main.py                 # Main execution script
-├── config.py              # Configuration settings
-├── analyzer.py            # Main analyzer orchestrator
-├── data_loader.py         # Data loading utilities
-├── ceiling_analysis.py    # Ceiling effects analysis
-├── preprocessor.py        # Data preprocessing pipeline
-├── visualizer.py          # Visualization and EDA
-├── requirements.txt       # Python dependencies
-└── README.md             # This file
 ```
 
 ## Installation
@@ -489,48 +322,3 @@ The pipeline handles these common clinical assessment features:
 - Cognitive Flexibility
 - Memory assessments
 - And many others...
-
-## Troubleshooting
-
-### Common Issues
-
-1. **File Not Found Error**
-   ```
-   ERROR: The following files were not found:
-     - asd_train: autism_train.csv
-   ```
-   **Solution**: Ensure your CSV files are in the correct location or use custom paths with `--asd-train`, etc.
-
-2. **Memory Issues with Large Datasets**
-   **Solution**: The pipeline is optimized for memory efficiency, but for very large datasets, consider processing in chunks.
-
-3. **Missing Dependencies**
-   ```
-   ImportError: No module named 'pandas'
-   ```
-   **Solution**: Install requirements with `pip install -r requirements.txt`
-
-### Debugging Tips
-
-- Use `--verbose` flag for detailed output
-- Check `analysis_summary.csv` for configuration verification
-- Examine individual plots to understand data characteristics
-
-## Contributing
-
-The modular design makes it easy to extend functionality:
-
-1. **Adding New Visualizations**: Extend `visualizer.py`
-2. **New Preprocessing Steps**: Add methods to `preprocessor.py`
-3. **Custom Analysis Methods**: Create new modules following the existing pattern
-
-## License
-
-This project is provided as-is for educational and research purposes.
-
-## Support
-
-For issues or questions:
-1. Check the troubleshooting section
-2. Review the generated `analysis_summary.csv` for configuration details
-3. Use `--verbose` mode for detailed debugging output
