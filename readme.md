@@ -114,7 +114,7 @@ results/
 - Feature significance analysis
 - Clinical case study visualizations
 
-## 🛡️ Quality Assurance
+## Quality Assurance
 
 ### Case Study Output
 ![Dysgraphia Detection - CAM Heatmap](images/cam_overlay.png)
