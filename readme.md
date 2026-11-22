@@ -111,7 +111,7 @@ results/
 ## 🛡️ Quality Assurance
 
 ### Case Study Output
-![Dysgraphia Detection - CAM Heatmap](images/cam_visualization.png)
+![Dysgraphia Detection - CAM Heatmap]([images/cam_visualization.png](https://github.com/Aadhavann/Dysgraphia-Detection/blob/main/images/cam_overlay.png))
 
 - **Original Image**: Raw handwriting sample
 - **CAM Heatmap**: Model attention visualization
